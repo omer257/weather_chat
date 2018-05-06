@@ -1,0 +1,86 @@
+body,html{
+  padding: 0px;
+  margin: 0px;
+}
+
+.container{
+  margin-top: 100px;
+}
+
+.first{
+  margin: 25px 0px;
+}
+
+.city{
+  box-shadow: 0px 0px 5px 2px #f2f2f2;
+  padding: 10px 25px;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-top: 50px;
+  position: relative;
+}
+
+.city:hover{
+  box-shadow: 0px 0px 5px 2px #c9c9c9;
+}
+
+.city p{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+p.titleP{
+  font-size: 19px;
+}
+
+.comments p{
+  font-weight: normal;
+}
+
+.deleteCity{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #df1d1d;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.4s;
+}
+
+.deleteCity:hover{
+  opacity: 1;
+}
+
+p.comment{
+  position: relative;
+  padding: 5px;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}
+
+.comment:hover i{
+  display: block;
+}
+
+.comment:hover{
+  background-color: #f6f6f6;
+}
+
+.comment i{
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: 0.4s;
+  display: none;
+}
+
+.form-control:focus{
+  box-shadow: none;
+}
+
+.btn-primary:focus, .btn-primary.focus{
+  box-shadow: none!important;
+}

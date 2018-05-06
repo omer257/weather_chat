@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title></title>
+</head>
+<body>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-3"></div>
+      <div class="col-md-8 col-md-offset-3">
+
+        <div class="page-header">
+          <h1>Whether chat</h1>
+        </div>
+
+        <div class="input-group mb-3 first">
+          <input type="text" class="form-control getTempVal" placeholder="Enter city">
+          <div class="input-group-append">
+            <button class="btn btn-primary getTemp" type="button">Get Temp</button>
+          </div>
+        </div>
+
+        <div class="sort">
+          <button type="button" class="btn btn-info byName">Sort by Name</button>
+          <button type="button" class="btn btn-info byTemp">Sort by Temp</button>
+          <button type="button" class="btn btn-info byDate">Sort by Date</button>
+        </div>
+        <div class="cities"></div>
+
+      </div>
+      <div class="col-md-2 col-md-offset-3"></div>
+    </div>
+
+  </div>
+  <script id="template-cities" type="text/x-handlebars-template">
+    {{#each cities}}
+    <div data-id="{{@index}}" class="city">
+      <p class="titleP">{{name}}</p>
+      <p>{{temp}}&deg;C - on  {{date}}</p>
+      <i class="fa fa-trash deleteCity"></i>
+      <div class="comments">
+        {{#each comments}}
+          <p class="comment" data-comment_id="{{@index}}">&#9658; {{text}} <i class="fa fa-trash deleteComment"></i></p>
+        {{/each}}
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control commentVal" placeholder="Enter comment">
+        <div class="input-group-append">
+          <button class="btn btn-success commentBtn" type="button">Comment</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+  <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
+  <script src="main.js" type="module"></script>
+</body>
+</html>
