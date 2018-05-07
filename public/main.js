@@ -1,7 +1,6 @@
-import {WeatherRepository} from './classes/weatherRepository.js';
-import {WeatherApi} from './classes/weatherApi.js';
-import {WeatherRender} from './classes/weatherRender.js';
-import {City} from './classes/city.js';
+import {WeatherRepository} from './modules/weatherRepository.js';
+import {WeatherApi} from './modules/weatherApi.js';
+import {WeatherRender} from './modules/weatherRender.js';
 
 var weatherRepository = new WeatherRepository();
 var weatherApi = new WeatherApi();
@@ -12,13 +11,7 @@ weatherRender.renderReport(weatherRepository.cities);
 var getTempVal = function() {
   var city = $('.getTempVal').val();
   if(city!=""){
-    weatherApi.getWeather(city).then( function(data){
-      var name = data.name;
-      var temp = data.main.temp - 273.15;
-      temp = Math.round(temp * 100) / 100;
-      var date = new Date();
-      date = date.getDate() + '/' + (date.getMonth()+1) + '/' +  date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-      var city = new City(name, temp, date);
+    weatherApi.getWeather(city).then( function(city){
       var cities = weatherRepository.addWeatherReport(city);
       weatherRender.renderReport(cities);
       var city = $('.getTempVal').val("");
