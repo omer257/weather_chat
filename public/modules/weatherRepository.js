@@ -8,22 +8,26 @@ class WeatherRepository {
 
   addWeatherReport(city){
     this.cities.push(city);
+    this.saveToLocalStorage();
     return this.cities;
   }
 
   removeWeatherReport(index){
     this.cities.splice(index, 1);
+    this.saveToLocalStorage();
     return this.cities;
   }
 
   removeWeatherReportComment(indexCity,indexComment){
     this.cities[indexCity].comments.splice(indexComment, 1);
+    this.saveToLocalStorage();
     return this.cities;
   }
 
   addComment(index, commentString){
     var newComment = new Comment(commentString);
     this.cities[index].comments.push(newComment);
+    this.saveToLocalStorage();
     return this.cities;
   }
 

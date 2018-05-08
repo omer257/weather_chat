@@ -15,7 +15,6 @@ var getTempVal = function() {
       var cities = weatherRepository.addWeatherReport(city);
       weatherRender.renderReport(cities);
       var city = $('.getTempVal').val("");
-      weatherRepository.saveToLocalStorage();
     }).catch( function(){
       console.log("Error");
     });
@@ -38,7 +37,6 @@ $('.cities').on('click','.commentBtn', function () {
   var cityID = $city.data().id;
   var comment = $city.find(".commentVal").val();
   var cities = weatherRepository.addComment(cityID,comment);
-  weatherRepository.saveToLocalStorage();
   weatherRender.renderReport(cities);
   $city.find('.commentVal').val("");
 });
@@ -46,7 +44,6 @@ $('.cities').on('click','.commentBtn', function () {
 $('.cities').on('click','.deleteCity', function () {
   var cityID = $(this).closest(".city").data().id;
   var cities = weatherRepository.removeWeatherReport(cityID);
-  weatherRepository.saveToLocalStorage();
   weatherRender.renderReport(cities);
 });
 
@@ -54,7 +51,6 @@ $('.cities').on('click','.deleteComment', function () {
   var cityID = $(this).closest(".city").data().id;
   var commentID = $(this).closest(".comment").data().comment_id;
   var cities = weatherRepository.removeWeatherReportComment(cityID,commentID);
-  weatherRepository.saveToLocalStorage();
   weatherRender.renderReport(cities);
 });
 
